@@ -10,11 +10,11 @@ export default function Home() {
             TrustPay
           </h1>
           <p className="max-w-4xl text-lg text-zinc-300">
-            I am building TrustPay as a milestone escrow payment system for
-            remote service work on Stellar. I want to solve a problem I keep
-            seeing in global freelancing: freelancers risk non-payment, clients
-            risk poor delivery, and both sides lack a neutral and verifiable
-            settlement workflow.
+            I am building TrustPay, a milestone-based escrow platform for
+            freelancers and clients working across borders on Stellar. Today,
+            proof of delivery and proof of payment are usually scattered across
+            chats, invoices, and separate payment tools, which leads to delays
+            and avoidable disputes.
           </p>
           <div className="flex flex-wrap gap-3 text-sm text-zinc-200">
             <span className="rounded-full border border-zinc-700 px-3 py-1">
@@ -43,13 +43,15 @@ export default function Home() {
           <article className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-5">
             <h2 className="text-lg font-semibold">Technical Solution</h2>
             <p className="mt-2 text-sm text-zinc-300">
-              I model each contract as an explicit milestone state machine:
+              TrustPay uses a contract-driven workflow where each milestone
+              moves through explicit approval states:
               <span className="text-zinc-100">
                 {" "}
                 Draft {"->"} Funded {"->"} Submitted {"->"} Approved {"->"} Released
               </span>
-              . Funds can move only through valid transitions with explicit
-              approval events and ledger-backed settlement.
+              . Funds are released only after explicit confirmation, and payouts
+              are backed by ledger-based settlement records for transparency and
+              auditability.
             </p>
           </article>
 
@@ -76,15 +78,15 @@ export default function Home() {
         <section className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-6">
           <h2 className="text-2xl font-semibold">Why This Solves a Real Pain</h2>
           <p className="mt-3 text-sm leading-6 text-zinc-300">
-            I am not building this as a speculative crypto feature. I am
-            targeting a real, high-frequency payment workflow where people
-            already move real money under low trust. My goal is to reduce
-            disputes by binding approvals and payouts to one verifiable flow.
+            This is not a generic payout tool. It is a trust layer for service
+            contracts where payment depends on milestone approval. I am
+            focusing on reducing friction between delivery and settlement so
+            both sides can work with higher confidence.
           </p>
         </section>
 
         <section className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-6">
-          <h2 className="text-2xl font-semibold">Implementation Plan (12 Weeks)</h2>
+          <h2 className="text-2xl font-semibold">Implementation Approach</h2>
           <ul className="mt-4 grid gap-3 text-sm text-zinc-300 md:grid-cols-2">
             <li className="rounded-lg border border-zinc-800 p-4">
               <p className="font-semibold text-zinc-100">
@@ -125,25 +127,17 @@ export default function Home() {
           </ul>
         </section>
 
-        <section className="rounded-xl border border-zinc-700 bg-zinc-900 p-6">
-          <h2 className="text-2xl font-semibold text-zinc-100">
-            Success Metrics (Measurable)
-          </h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-200">
-            <li>20-50 pilot users with active milestone contracts.</li>
-            <li>100+ testnet escrow-related transactions.</li>
-            <li>5-10 pilot contracts executed on mainnet.</li>
-            <li>Target dispute rate below 10% in pilot cohort.</li>
-            <li>Median payout confirmation time under 2 minutes.</li>
-          </ul>
-        </section>
-
         <section className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6">
           <h2 className="text-2xl font-semibold">SCF Build Fit</h2>
           <p className="mt-2 text-sm text-zinc-300">
             I plan to submit this to the Integration Track. TrustPay combines
             existing Stellar capabilities into a production-focused end-user
             workflow with clear engineering milestones and launch criteria.
+          </p>
+          <p className="mt-3 text-sm text-zinc-300">
+            I also see this as complementary to Stellar Disbursement Platform:
+            SDP handles bulk disbursement very well, while TrustPay focuses on
+            milestone approval and escrow release logic before payout.
           </p>
         </section>
       </main>
