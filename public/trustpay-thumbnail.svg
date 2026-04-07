@@ -1,0 +1,44 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F0F10"/>
+      <stop offset="1" stop-color="#242426"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1200" height="640" rx="28" fill="#161618" stroke="#343438" stroke-width="2"/>
+
+  <!-- Left content -->
+  <rect x="96" y="106" width="190" height="34" rx="17" fill="#2A2A2E"/>
+  <text x="116" y="128" fill="#D4D4D8" font-family="Arial, sans-serif" font-size="16" font-weight="700">SCF Build Draft</text>
+
+  <text x="96" y="236" fill="#FAFAFA" font-family="Arial, sans-serif" font-size="88" font-weight="800">TrustPay</text>
+  <text x="96" y="286" fill="#E4E4E7" font-family="Arial, sans-serif" font-size="28" font-weight="600">Safe milestone payouts for global freelancers</text>
+  <text x="96" y="328" fill="#B8B8BD" font-family="Arial, sans-serif" font-size="24">Built on Stellar for transparent escrow settlement</text>
+
+  <text x="96" y="402" fill="#D4D4D8" font-family="Arial, sans-serif" font-size="21">I built this to reduce payment disputes</text>
+  <text x="96" y="434" fill="#D4D4D8" font-family="Arial, sans-serif" font-size="21">between clients and freelancers.</text>
+
+  <rect x="96" y="540" width="128" height="44" rx="22" fill="#2B2B30" stroke="#4A4A52"/>
+  <text x="132" y="568" fill="#F1F1F3" font-family="Arial, sans-serif" font-size="18" font-weight="600">Fast</text>
+
+  <rect x="238" y="540" width="174" height="44" rx="22" fill="#2B2B30" stroke="#4A4A52"/>
+  <text x="275" y="568" fill="#F1F1F3" font-family="Arial, sans-serif" font-size="18" font-weight="600">Transparent</text>
+
+  <rect x="426" y="540" width="144" height="44" rx="22" fill="#2B2B30" stroke="#4A4A52"/>
+  <text x="463" y="568" fill="#F1F1F3" font-family="Arial, sans-serif" font-size="18" font-weight="600">On-chain</text>
+
+  <!-- Right product mock -->
+  <rect x="736" y="132" width="420" height="122" rx="16" fill="#1E1E22" stroke="#484850" stroke-width="2"/>
+  <text x="946" y="180" text-anchor="middle" fill="#F5F5F6" font-family="Arial, sans-serif" font-size="28" font-weight="700">Contract #1042</text>
+  <text x="946" y="220" text-anchor="middle" fill="#CECED2" font-family="Arial, sans-serif" font-size="20">Status: In Escrow</text>
+
+  <rect x="736" y="282" width="420" height="122" rx="16" fill="#1E1E22" stroke="#484850" stroke-width="2"/>
+  <text x="946" y="330" text-anchor="middle" fill="#F5F5F6" font-family="Arial, sans-serif" font-size="28" font-weight="700">Milestone 2: Ready</text>
+  <text x="946" y="372" text-anchor="middle" fill="#CECED2" font-family="Arial, sans-serif" font-size="20">Client review in progress</text>
+
+  <rect x="736" y="432" width="420" height="122" rx="16" fill="#222227" stroke="#4A4A52" stroke-width="2"/>
+  <rect x="820" y="470" width="252" height="42" rx="11" fill="#6E6E76"/>
+  <text x="946" y="491" text-anchor="middle" dominant-baseline="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="18" font-weight="700">Release Payment</text>
+</svg>
