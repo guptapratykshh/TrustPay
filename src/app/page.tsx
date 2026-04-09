@@ -4,140 +4,188 @@ export default function Home() {
       <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-16 sm:px-10">
         <section className="space-y-5">
           <p className="inline-block rounded-full border border-zinc-600 bg-zinc-900 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-zinc-300">
-            SCF Build Interest Draft
+            SCF Build Interest
           </p>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             TrustPay
           </h1>
           <p className="max-w-4xl text-lg text-zinc-300">
-            I am building TrustPay, a milestone-based escrow platform for
-            freelancers and clients working across borders on Stellar. Today,
-            proof of delivery and proof of payment are usually scattered across
-            chats, invoices, and separate payment tools, which leads to delays
-            and avoidable disputes.
+            Cross-border freelance work often splits{" "}
+            <span className="text-zinc-100">delivery proof</span> and{" "}
+            <span className="text-zinc-100">payment proof</span> across chats,
+            invoices, and separate tools. That fragmentation drives delays,
+            disputes, and low confidence on both sides.
+          </p>
+          <p className="max-w-4xl text-lg text-zinc-300">
+            <span className="font-semibold text-zinc-100">TrustPay</span> is a
+            milestone escrow product on{" "}
+            <span className="text-zinc-100">Stellar</span>: funds sit in escrow,
+            each milestone moves through explicit approval states, and release
+            happens only after confirmation. Settlement stays tied to{" "}
+            <span className="text-zinc-100">ledger-backed</span> activity.
+          </p>
+          <p className="max-w-4xl text-sm leading-relaxed text-zinc-400">
+            The objective is a practical trust layer for one-to-one and
+            small-team service work. Bulk disbursement stacks (including
+            patterns like SDP) are strong at organization-scale payouts; TrustPay
+            focuses on{" "}
+            <span className="text-zinc-300">
+              approval-gated escrow and milestone release
+            </span>{" "}
+            before money moves. The build is led with that positioning in mind.
           </p>
           <div className="flex flex-wrap gap-3 text-sm text-zinc-200">
             <span className="rounded-full border border-zinc-700 px-3 py-1">
-              Milestone-bound release
+              Milestone escrow
             </span>
             <span className="rounded-full border border-zinc-700 px-3 py-1">
-              Deterministic payout state machine
+              Approval-gated release
             </span>
             <span className="rounded-full border border-zinc-700 px-3 py-1">
-              On-chain settlement verification
+              Stellar SDK + Horizon / RPC
             </span>
           </div>
         </section>
 
-        <section className="grid gap-4 md:grid-cols-2">
-          <article className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-5">
-            <h2 className="text-lg font-semibold">Problem Definition</h2>
-            <p className="mt-2 text-sm text-zinc-300">
-              From my perspective, global freelancing payments break because
-              proof of work and proof of payment live in different places:
-              chats, invoices, and third-party processors. That fragmentation
-              causes disputes, delayed cashflow, and low trust between clients
-              and contributors.
-            </p>
-          </article>
-          <article className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-5">
-            <h2 className="text-lg font-semibold">Technical Solution</h2>
-            <p className="mt-2 text-sm text-zinc-300">
-              TrustPay uses a contract-driven workflow where each milestone
-              moves through explicit approval states:
-              <span className="text-zinc-100">
-                {" "}
-                Draft {"->"} Funded {"->"} Submitted {"->"} Approved {"->"} Released
-              </span>
-              . Funds are released only after explicit confirmation, and payouts
-              are backed by ledger-based settlement records for transparency and
-              auditability.
-            </p>
-          </article>
-
-          <article className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-5">
-            <h2 className="text-lg font-semibold">System Architecture</h2>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-300">
-              <li>I use Next.js for contract setup and milestone approvals.</li>
-              <li>I run an API service for metadata, signatures, and alerts.</li>
-              <li>I execute escrow funding and payouts on Stellar.</li>
-              <li>I track receipts through indexed transaction events.</li>
-            </ul>
-          </article>
-          <article className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-5">
-            <h2 className="text-lg font-semibold">Controls and Reliability</h2>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-300">
-              <li>I enforce role-based actions for client and freelancer.</li>
-              <li>I add state guards to prevent invalid or duplicate release.</li>
-              <li>I log every transition and payout event for auditability.</li>
-              <li>I include timeout and cancellation paths for stalled work.</li>
-            </ul>
-          </article>
-        </section>
-
         <section className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-6">
-          <h2 className="text-2xl font-semibold">Why This Solves a Real Pain</h2>
+          <h2 className="text-2xl font-semibold">Current stage</h2>
           <p className="mt-3 text-sm leading-6 text-zinc-300">
-            This is not a generic payout tool. It is a trust layer for service
-            contracts where payment depends on milestone approval. I am
-            focusing on reducing friction between delivery and settlement so
-            both sides can work with higher confidence.
+            TrustPay is <span className="text-zinc-100">pre-MVP</span>: a public
+            site states the problem and direction; workflow design covers client
+            vs freelancer roles, milestone states, and what must be true
+            on-chain versus in-product before a release is allowed. There is no
+            live mainnet product or transaction volume yet, the next step is a
+            testnet-first implementation, then a controlled mainnet pilot.
           </p>
         </section>
 
         <section className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-6">
-          <h2 className="text-2xl font-semibold">Implementation Approach</h2>
+          <h2 className="text-2xl font-semibold">Planned Stellar integration</h2>
+
+          <h3 className="mt-5 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+            Contract-to-ledger mapping
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-zinc-300">
+            Each engagement maps to Stellar with clear fund segregation, a
+            dedicated holding pattern (e.g. escrow-oriented account flow or an
+            equivalent approach) so contract balances are not mixed with
+            personal spending. Stable, settlement-oriented assets are preferred
+            for the MVP where they match real freelancer use.
+          </p>
+
+          <h3 className="mt-5 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+            Funding (client → escrow)
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-zinc-300">
+            The client funds a milestone plan through Stellar. The app uses the{" "}
+            <span className="text-zinc-100">Stellar SDK</span> to build
+            transactions appropriate to the asset (including trust and
+            authorization steps when required), submits them, and tracks{" "}
+            <span className="text-zinc-100">pending → confirmed</span> via{" "}
+            <span className="text-zinc-100">Horizon</span> or equivalent RPC.
+            Transaction identifiers are stored as receipts linked to contract and
+            milestone records.
+          </p>
+
+          <h3 className="mt-5 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+            Release (escrow → freelancer)
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-zinc-300">
+            Releases are <span className="text-zinc-100">state-gated</span>:
+            only after milestone approval does the application submit the
+            Stellar transaction that pays the approved tranche. Product state
+            and settlement stay aligned, approvals are not UI-only promises
+            disconnected from what moved on-chain.
+          </p>
+
+          <h3 className="mt-5 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+            Observability and reliability
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-zinc-300">
+            A service layer indexes contract identifiers to on-chain activity for
+            dashboards and audit trails.{" "}
+            <span className="text-zinc-100">Idempotency, retries,</span> and
+            reconciliation handle failed or delayed submissions. The path is{" "}
+            <span className="text-zinc-100">testnet end-to-end</span> first
+            (fund → approve → release → verify in an explorer), then mainnet
+            after basic reliability and UX checks.
+          </p>
+
+          <h3 className="mt-5 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+            Ecosystem fit
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-zinc-300">
+            If a later phase needs bulk payouts to many recipients, that can
+            align with existing disbursement patterns; the MVP stays focused on
+            milestone approval and escrow release as the differentiator.
+          </p>
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-2">
+          <article className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-5">
+            <h2 className="text-lg font-semibold">Workflow</h2>
+            <p className="mt-2 text-sm text-zinc-300">
+              Each contract follows explicit states:{" "}
+              <span className="text-zinc-100">
+                Draft → Funded → Submitted → Approved → Released
+              </span>
+              . Funds move only through valid transitions with explicit
+              confirmation and ledger-backed records.
+            </p>
+          </article>
+          <article className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-5">
+            <h2 className="text-lg font-semibold">Product stack (MVP)</h2>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-300">
+              <li>Next.js for contract setup and milestone actions.</li>
+              <li>API layer for metadata, notifications, and indexing.</li>
+              <li>Stellar SDK + Horizon/RPC for submit and observe.</li>
+              <li>Role-based actions and audit-friendly event history.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-6">
+          <h2 className="text-2xl font-semibold">Implementation approach</h2>
           <ul className="mt-4 grid gap-3 text-sm text-zinc-300 md:grid-cols-2">
             <li className="rounded-lg border border-zinc-800 p-4">
-              <p className="font-semibold text-zinc-100">
-                Phase 1: Escrow core
-              </p>
+              <p className="font-semibold text-zinc-100">Escrow core</p>
               <p>
-                I will model contracts, transitions, and escrow funding flow on
+                Model contracts, state transitions, and funding flow on
                 Stellar testnet.
               </p>
             </li>
             <li className="rounded-lg border border-zinc-800 p-4">
-              <p className="font-semibold text-zinc-100">
-                Phase 2: Workflow UI + API
-              </p>
+              <p className="font-semibold text-zinc-100">UI + API</p>
               <p>
-                I will build client/freelancer dashboards, milestone actions,
-                and reliable API endpoints.
+                Client and freelancer views, milestone actions, and reliable
+                endpoints.
               </p>
             </li>
             <li className="rounded-lg border border-zinc-800 p-4">
               <p className="font-semibold text-zinc-100">
-                Phase 3: Observability + hardening
+                Observability + hardening
               </p>
               <p>
-                I will add transaction reconciliation, audit views, and robust
-                error handling for failed or delayed operations.
+                Reconciliation, audit views, and handling for failed or delayed
+                submissions.
               </p>
             </li>
             <li className="rounded-lg border border-zinc-800 p-4">
-              <p className="font-semibold text-zinc-100">
-                Phase 4: Pilot and launch readiness
-              </p>
+              <p className="font-semibold text-zinc-100">Pilot readiness</p>
               <p>
-                I will run a pilot cohort, collect completion metrics, and
-                promote stable contract flows to mainnet.
+                Controlled pilot, then stable mainnet flows once checks pass.
               </p>
             </li>
           </ul>
         </section>
 
         <section className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6">
-          <h2 className="text-2xl font-semibold">SCF Build Fit</h2>
+          <h2 className="text-2xl font-semibold">SCF Build fit</h2>
           <p className="mt-2 text-sm text-zinc-300">
-            I plan to submit this to the Integration Track. TrustPay combines
-            existing Stellar capabilities into a production-focused end-user
-            workflow with clear engineering milestones and launch criteria.
-          </p>
-          <p className="mt-3 text-sm text-zinc-300">
-            I also see this as complementary to Stellar Disbursement Platform:
-            SDP handles bulk disbursement very well, while TrustPay focuses on
-            milestone approval and escrow release logic before payout.
+            <span className="text-zinc-100">Integration Track</span> fits
+            TrustPay: it composes existing Stellar capabilities into an end-user
+            workflow escrow funding, approval-gated release, and RPC-backed
+            confirmation, rather than reinventing organization-scale disbursement.
           </p>
         </section>
       </main>

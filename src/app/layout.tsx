@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "TrustPay | Milestone Escrow on Stellar",
   description:
-    "TrustPay is a milestone-based escrow payment app for global freelancers and clients, built on Stellar.",
+    "Milestone escrow on Stellar: approval-gated release, SDK and Horizon/RPC integration, trust layer for cross-border freelance contracts.",
 };
 
 export default function RootLayout({
